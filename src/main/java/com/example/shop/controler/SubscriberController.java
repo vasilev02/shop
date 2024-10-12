@@ -141,8 +141,7 @@ public class SubscriberController {
      */
     @PostMapping("/{subscriberId}/products/{productId}")
     public ResponseEntity<Object> addProductToSubscriber(@PathVariable Long subscriberId, @PathVariable Long productId) {
-        String response = this.subscriberService.addProductToSubscriber(subscriberId, productId);
-        return ResponseEntity.status(201).body(response);
+        return ResponseEntity.status(201).body(this.subscriberService.addProductToSubscriber(subscriberId, productId));
     }
 
 }

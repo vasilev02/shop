@@ -21,5 +21,5 @@ public interface SubscriberService {
 
     SubscriberViewModel deleteSubscriber(Long id);
 
-    String addProductToSubscriber(Long subscriberId, Long productId);
+    Object addProductToSubscriber(Long subscriberId, Long productId);
 }

@@ -126,10 +126,10 @@ public class SubscriberServiceImpl implements SubscriberService {
      *
      * @param subscriberId the id of the subscriber
      * @param productId    the id of the product to add
-     * @return a success message if the product was added successfully, or an error message otherwise
+     * @return a subscriber object if the product was added successfully to it, or an error message otherwise
      */
     @Transactional
-    public String addProductToSubscriber(Long subscriberId, Long productId) {
+    public Object addProductToSubscriber(Long subscriberId, Long productId) {
         Subscriber subscriber = this.checkIfSubscriberExists(subscriberId);
         Optional<Product> product = this.productRepository.findById(productId);
 
@@ -154,7 +154,7 @@ public class SubscriberServiceImpl implements SubscriberService {
 
         subscriberProducts.add(addProduct);
         subscriber.setProducts(subscriberProducts);
-        this.subscriberRepository.save(subscriber);
+        Subscriber updatedSubscriber = this.subscriberRepository.save(subscriber);
 
         List<Subscriber> productSubscribers = addProduct.getSubscribers();
 
@@ -166,7 +166,7 @@ public class SubscriberServiceImpl implements SubscriberService {
         addProduct.setSubscribers(productSubscribers);
         this.productRepository.save(addProduct);
 
-        return String.format("Successfully added product %s to subscriber %s %s.", addProduct.getName(), subscriber.getFirstName(), subscriber.getLastName());
+        return updatedSubscriber;
     }
 
     /**

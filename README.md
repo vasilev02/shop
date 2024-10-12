@@ -17,9 +17,9 @@ sold to multiple subscribers and of course one subscriber can have multiple purc
   GET /api/products/{id}
 ```
 
-| Parameter | Type   | Description              |
-|:----------|:-------| :----------------------- |
-| `id`      | `long` | **Required** |
+| Parameter | Type   | Description    |
+|:----------|:-------|:---------------|
+| `id`      | `long` | **Required**. Id of item to fetch |
 
 #### Get all products
 
@@ -105,9 +105,9 @@ sold to multiple subscribers and of course one subscriber can have multiple purc
   GET /api/subscribers/{id}
 ```
 
-| Parameter | Type   | Description              |
-|:----------|:-------| :----------------------- |
-| `id`      | `long` | **Required** |
+| Parameter | Type   | Description    |
+|:----------|:-------|:---------------|
+| `id`      | `long` | **Required**. Id of item to fetch |
 
 #### Get all subscribers
 
